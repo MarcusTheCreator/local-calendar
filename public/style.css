@@ -1,13 +1,13 @@
 :root {
-  --bg: #f7f4ee;
-  --paper: #fffdf9;
+  --bg: #f2f4f0;
+  --paper: #fcfdfb;
   --ink: #23201b;
-  --muted: #6d665c;
-  --line: #e4ddd1;
+  --muted: #5f665d;
+  --line: #dde3da;
   --accent: #2f6f4f;
   --accent-ink: #ffffff;
-  --today: #c2462b;
-  --weekend: #f3eee5;
+  --today: #1f5f8b;
+  --weekend: #e9eee6;
   --danger: #b3261e;
   --radius: 10px;
   --shadow: 0 1px 2px rgba(35, 32, 27, 0.06), 0 4px 16px rgba(35, 32, 27, 0.06);
@@ -23,12 +23,26 @@
     --line: #36322c;
     --accent: #6fbf94;
     --accent-ink: #10231a;
-    --today: #ff8a6b;
+    --today: #7cb8e4;
     --weekend: #29261f;
     --danger: #ff8a80;
     color-scheme: dark;
   }
 }
+
+:root[data-theme='dark'] {
+    --bg: #171614;
+    --paper: #211f1c;
+    --ink: #eee9e0;
+    --muted: #a59d90;
+    --line: #36322c;
+    --accent: #6fbf94;
+    --accent-ink: #10231a;
+    --today: #7cb8e4;
+    --weekend: #29261f;
+    --danger: #ff8a80;
+    color-scheme: dark;
+  }
 
 * { box-sizing: border-box; }
 
@@ -89,7 +103,7 @@ nav.main a[aria-current='page'] { background: var(--ink); color: var(--bg); }
 .day:focus-visible { outline: 2px solid var(--accent); }
 .day.past { color: var(--muted); }
 .day.today .num {
-  background: var(--today); color: #fff; border-radius: 50%; width: 1.8em; height: 1.8em;
+  background: var(--today); color: var(--paper); border-radius: 50%; width: 1.8em; height: 1.8em;
   display: grid; place-items: center; font-weight: 600;
 }
 .day.has-events { font-weight: 600; }
