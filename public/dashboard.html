@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <div>
+        <h1>Dashboard</h1>
+        <p class="tagline" id="who"></p>
+      </div>
+      <nav class="main">
+        <a href="/">View calendar</a>
+        <a href="#" id="logout">Sign out</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div id="panel"></div>
+  </main>
+
+  <dialog id="dialog" aria-labelledby="dialog-title">
+    <div class="dialog-head">
+      <h2 id="dialog-title"></h2>
+      <button class="close" aria-label="Close" id="dialog-close">&times;</button>
+    </div>
+    <div class="dialog-body" id="dialog-body"></div>
+  </dialog>
+
+  <script src="/dashboard.js"></script>
+</body>
+</html>

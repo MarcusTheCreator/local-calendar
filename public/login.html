@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business login</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="wrap">
+    <div class="auth card">
+      <h1 style="font-size:1.6rem;margin-bottom:6px">Business login</h1>
+      <p class="muted" style="margin-top:0">Sign in to add and update your events.</p>
+      <form class="stack" id="login">
+        <label>Email <input type="email" name="email" autocomplete="username" required></label>
+        <label>Password <input type="password" name="password" autocomplete="current-password" required></label>
+        <p class="error" id="error" role="alert"></p>
+        <button class="btn primary" type="submit">Sign in</button>
+      </form>
+      <p class="muted" style="font-size:0.9rem">No login yet? Ask the site admin to set one up for your business.</p>
+      <p><a href="/">&larr; Back to the calendar</a></p>
+    </div>
+  </main>
+  <script>
+    document.getElementById('login').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = new FormData(e.target);
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: form.get('email'), password: form.get('password') }),
+      });
+      if (res.ok) location.href = '/dashboard';
+      else document.getElementById('error').textContent = (await res.json()).error || 'Sign in failed';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Local Calendar</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <div>
+        <h1 id="site-name">Local Calendar</h1>
+        <p class="tagline" id="tagline"></p>
+      </div>
+      <nav class="main">
+        <a href="#" data-view="calendar">Calendar</a>
+        <a href="#businesses" data-view="businesses">Who's who</a>
+        <a href="#faq" data-view="faq">FAQ</a>
+        <a href="/login" id="login-link">Business login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="app">
+    <section data-panel="calendar">
+      <div class="yearbar">
+        <button class="btn-round" id="prev-year" aria-label="Previous year">&lsaquo;</button>
+        <h2 id="year-title"></h2>
+        <button class="btn-round" id="next-year" aria-label="Next year">&rsaquo;</button>
+      </div>
+      <p class="muted" style="text-align:center;margin-top:-12px"><button class="link-btn" id="today-btn">Jump to today</button></p>
+      <div class="year" id="year"></div>
+      <div class="section">
+        <h2>Coming up</h2>
+        <div class="upcoming" id="upcoming"></div>
+      </div>
+    </section>
+
+    <section data-panel="businesses" hidden>
+      <div class="section">
+        <h2>Who's who</h2>
+        <p class="muted">Opening times, contact details and answers to common questions from everyone who lists events here.</p>
+        <div class="biz-grid" id="biz-list"></div>
+      </div>
+    </section>
+
+    <section data-panel="faq" hidden>
+      <div class="section">
+        <h2>Frequently asked questions</h2>
+        <div class="card faq" id="site-faq"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site"><div class="wrap" id="footer"></div></footer>
+
+  <dialog id="dialog" aria-labelledby="dialog-title">
+    <div class="dialog-head">
+      <div>
+        <h2 id="dialog-title"></h2>
+        <div class="muted" id="dialog-sub"></div>
+      </div>
+      <button class="close" aria-label="Close" id="dialog-close">&times;</button>
+    </div>
+    <div class="dialog-body" id="dialog-body"></div>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
+</html>

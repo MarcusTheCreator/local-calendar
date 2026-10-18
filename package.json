@@ -1,0 +1,14 @@
+{
+  "name": "local-calendar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple year-at-a-glance calendar of local events, with logins for the businesses that run them.",
+  "main": "server.js",
+  "engines": { "node": ">=22.5" },
+  "scripts": {
+    "start": "node server.js",
+    "create-admin": "node server.js create-admin",
+    "seed-demo": "node seed-demo.js",
+    "preview": "node build-preview.js"
+  }
+}
