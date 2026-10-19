@@ -1,4 +1,4 @@
-# Local events calendar
+# Worth Valley Calendar
 
 A lightweight website that shows a whole year of local events like a wall calendar.
 Visitors click a day to see what's on, with times, prices, ticket links, and each
@@ -37,7 +37,17 @@ and a blank line between questions.
 ## Put it online
 
 Any host that runs Node.js **and keeps files between restarts** will do, because
-the events live in `data/calendar.db`. Good low-cost options:
+the events live in `data/calendar.db`.
+
+### On Railway (recommended)
+
+1. In Railway, choose **New Project → Deploy from GitHub repo** and pick this repository. It builds from the `Dockerfile`.
+2. Open the service, right-click it (or use the command palette) and **Add Volume**, mounted at `/data`. This keeps your events safe across deploys.
+3. Under **Variables**, add `ADMIN_EMAIL` (your email), `ADMIN_PASSWORD` (at least 8 characters) and `SECURE_COOKIES` = `1`.
+4. Under **Settings → Networking**, click **Generate Domain** for a free address, or add your own domain there.
+5. Visit the address, sign in at `/login` and change your password under **My account**. You can then delete `ADMIN_PASSWORD` from the variables.
+
+### Other hosts
 
 - **A small VPS** (Hetzner, DigitalOcean, etc.): copy the folder over, run
   `node server.js` under a process manager such as systemd or pm2, and put Caddy

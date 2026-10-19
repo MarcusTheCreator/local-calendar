@@ -60,8 +60,8 @@ CREATE TABLE IF NOT EXISTS settings (
 `);
 
 const DEFAULT_SETTINGS = {
-  site_name: 'Our Town Calendar',
-  tagline: "What's on locally, all year round",
+  site_name: 'Worth Valley Calendar',
+  tagline: "What's on in the Worth Valley, all year round",
   faq: 'How do I get my events listed?\nAsk the site admin for a business login, then add events from your dashboard.\n\nAre the events free?\nEach event shows its own price and ticket link where there is one.',
   footer: '',
 };

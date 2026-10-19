@@ -447,6 +447,19 @@ if (require.main === module) {
     }
     createAdmin(arg.toLowerCase());
   } else {
+    // Hosts without a shell can create the first admin from environment variables.
+    const { ADMIN_EMAIL, ADMIN_PASSWORD } = process.env;
+    if (ADMIN_EMAIL && ADMIN_PASSWORD && !db.prepare('SELECT 1 FROM users WHERE email = ?').get(ADMIN_EMAIL)) {
+      if (ADMIN_PASSWORD.length < 8) {
+        console.error('ADMIN_PASSWORD needs at least 8 characters; admin not created.');
+      } else {
+        db.prepare("INSERT INTO users (email, name, password_hash, role) VALUES (?, 'Admin', ?, 'admin')").run(
+          ADMIN_EMAIL.toLowerCase(),
+          hashPassword(ADMIN_PASSWORD)
+        );
+        console.log(`Created admin login for ${ADMIN_EMAIL}`);
+      }
+    }
     if (!db.prepare("SELECT 1 FROM users WHERE role = 'admin'").get()) {
       console.log('No admin yet. Run: node server.js create-admin you@example.com');
     }
